@@ -1,0 +1,50 @@
+{
+	"Jeu" :
+		{
+			"largeur" : 640,
+			"hauteur" : 480,
+			"maxPas"  : 1000 ,
+			"playerRace" : "HUMAN",
+			"enemyRace" : "ORC"
+		},
+	"HotelVille" :
+		{
+			"largeur" : 50,
+			"hauteur" : 50,
+			"orRestant" : 16
+		},
+	"Mine" :
+		{
+			"largeur" : 25,
+			"hauteur" : 25,
+			"orRestant" : 180
+		},
+	"Muraille" :
+		{
+			"largeur" : 15,
+			"hauteur" :	15,
+			"pointsDeVie" : 20
+		},
+	"Route" :
+		{
+			"largeur" : 15,
+			"hauteur" : 15,
+			"facteur" : 2
+		},
+	"VillageoisOrc" :
+		{
+			"largeur" : 20,
+			"hauteur" : 15,
+			"force" : 4,
+			"vitesse" : 4,
+			"pointsDeVie" : 30
+		},
+	"VillageoisHuman" :
+		{
+			"largeur" : 25,
+			"hauteur" : 10,
+			"force" : 3,
+			"vitesse" : 5,
+			"pointsDeVie" : 30
+		}
+}

@@ -1,0 +1,176 @@
+{
+	
+		
+	"configuration" : [
+		{
+			"type" : "HotelVille1",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "HotelVille2",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois1",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois1",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois1",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois2",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois2",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Villageois2",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Mine",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Route",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		},
+		{
+			"type" : "Muraille",
+			"x" :  300,
+			"y" : 300
+		}
+	]
+}

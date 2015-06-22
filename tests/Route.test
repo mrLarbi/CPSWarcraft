@@ -1,0 +1,78 @@
+------------------------------------
+Test 1 : testInit1 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(21, 21, 2)
+Oracle : 
+	largeur(M) == 21
+	hauteur(M) == 21
+	facteurMult(M) == 2
+------------------------------------
+Test 2 : testInit2 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(21, 11, 2)
+Oracle : 
+	largeur(M) == 21
+	hauteur(M) == 11
+	facteurMult(M) == 2
+------------------------------------
+Test 3 : testInit3 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(11, 21, 2)
+Oracle : 
+	largeur(M) == 11
+	hauteur(M) == 21
+	facteurMult(M) == 2
+------------------------------------
+Test 4 : testInit4 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(15, 20, 2)
+Oracle : 
+	Exception
+------------------------------------
+Test 5 : testInit5 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(20, 15, 2)
+Oracle : 
+	Exception
+------------------------------------
+Test 6 : testInit6 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(15, -5, 2)
+Oracle : 
+	Exception
+------------------------------------
+Test 7 : testInit7 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(21, 15, -2)
+Oracle : 
+	Exception
+------------------------------------
+Test 8 : testInit8 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	R = init(21, 15, 0)
+Oracle : 
+	Exception

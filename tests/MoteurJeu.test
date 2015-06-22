@@ -1,0 +1,286 @@
+------------------------------------
+Test 1 : testInit1 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(640, 480, 1000, HUMAN, ORC, "config/map1.json")
+Oracle : 
+	largeurTerrain(M) == 640
+	hauteurTerrain(M) == 480
+	maxPas(M) == 1000
+	playerRace(M) == HUMAN
+	enemyRace(M) == ORC
+	pasJeuCourant(M) == 0
+	estInitialise(M) == true
+------------------------------------
+Test 2 : testInit2 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(640, 480, 200, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	largeurTerrain(M) == 640
+	hauteurTerrain(M) == 480
+	maxPas(M) == 200
+	playerRace(M) == ORC
+	enemyRace(M) == HUMAN
+	pasJeuCourant(M) == 0
+	estInitialise(M) == true
+------------------------------------
+Test 3 : testInit3 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(720, 560, 200, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	largeurTerrain(M) == 720
+	hauteurTerrain(M) == 560
+	maxPas(M) == 200
+	playerRace(M) == ORC
+	enemyRace(M) == HUMAN
+	pasJeuCourant(M) == 0
+	estInitialise(M) == true
+------------------------------------
+Test 4 : testInit4 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(600, 400, 200, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	largeurTerrain(M) == 720
+	hauteurTerrain(M) == 560
+	maxPas(M) == 200
+	playerRace(M) == ORC
+	enemyRace(M) == HUMAN
+	pasJeuCourant(M) == 0
+	estInitialise(M) == true
+------------------------------------
+Test 5 : testInit5 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(400, 560, 200, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	Exception
+------------------------------------
+Test 6 : testInit6 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(640, 300, 200, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	Exception
+------------------------------------
+Test 7 : testInit7 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(640, 500, -5, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	Exception
+------------------------------------
+Test 8 : testInit8 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(640, 500, 0, ORC, HUMAN, "config/map1.json")
+Oracle : 
+	Exception
+------------------------------------
+Test 9 : testPasJeu1 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, RIEN, 0,  0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300
+	les quantites d'or des hotelDeVille valent 16
+	les quantites d'or des mines valent 180
+	les points de vie des villageois valent 30
+	les point de vie des murailles valent 20
+	pasJeuCourant(M) = 1
+------------------------------------
+Test 10 : testPasJeu2 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, FRAPPERMURAILLE,0, 0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300
+	les quantites d'or des hotelDeVille valent 16
+	les quantites d'or des mines valent 180
+	les points de vie des villageois valent 30
+	les quantite d'or des villageois valent 0
+	les point de vie des murailles valent 20 sauf la muraille 0 qui a 16 pv
+	pasJeuCourant(M) = 1
+------------------------------------
+Test 11 : testPasJeu3 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, ENTRERMINE, 0, 0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300
+	les quantites d'or des hotelDeVille valent 16
+	les quantites d'or des mines valent 180 sauf la mine 0 qui en a 170
+	les points de vie des villageois valent 30
+	les quantite d'or des villageois valent 0 sauf le villageois 0 qui en 10
+	les point de vie des murailles valent 20
+	pasJeuCourant(M) = 1
+------------------------------------
+Test 12 : testPasJeu4 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+	M = pasJeu(M, 0, ENTRERMINE, 0)
+Opérations : 
+	M = pasJeu(M, ENTRERHOTELVILLE,0, 0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300
+	La quantite d'or de l'hotel de ville enemie vaut 16, tandis que celle du joueur vaut 26
+	les quantites d'or des mines valent 180 sauf la mine 0 qui en a 170
+	les points de vie des villageois valent 30
+	les quantite d'or des villageois valent 0
+	les point de vie des murailles valent 20
+	pasJeuCourant(M) = 2
+------------------------------------
+Test 13 : testPasJeu5 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, DEPLACER,0, 0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300 sauf le villageois 0 qui a pour position (305, 305)
+	les quantites d'or des hotelDeVille valent 16
+	les quantites d'or des mines valent 180
+	les points de vie des villageois valent 30
+	les quantite d'or des villageois valent 0
+	les point de vie des murailles valent 20
+	pasJeuCourant(M) = 1
+------------------------------------
+Test 14 : testPasJeu6 : Positif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités (il n'y'a notamment pas de contact avec les routes)
+Opérations : 
+	M = pasJeu(M, DEPLACER, 0,  0)
+Oracle : 
+	toute les positions des villageois (x et y) sont egales à 300 sauf le villageois 0 qui a pour position (302, 302)
+	les quantites d'or des hotelDeVille valent 16
+	les quantites d'or des mines valent 180
+	les points de vie des villageois valent 30
+	les quantite d'or des villageois valent 0
+	les point de vie des murailles valent 20
+	pasJeuCourant(M) = 1
+------------------------------------
+Test 15 : testPasJeu7 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités
+Opérations : 
+	M = pasJeu(M, RIEN,200, 0)
+Oracle : 
+	Exception
+------------------------------------
+Test 16 : testPasJeu8 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités
+Opérations : 
+	M = pasJeu(M, ENTRERHOTELVILLE, 0, 0)
+Oracle : 
+	Exception
+------------------------------------
+Test 17 : testPasJeu9 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités
+	M = pasJeu(M, 0, RIEN, 0) que l'on répete 1000 fois
+Opérations : 
+	M = pasJeu(M, RIEN, 0 , 0)
+Oracle : 
+	Exception
+------------------------------------
+Test 18 : testPasJeu10 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/existepas.json")
+	//On test avec un fichier qui n'existe pas, ce qui ne doit pas initialiser le moteur
+Opérations : 
+	M = pasJeu(M, RIEN, 0 , 0)
+Oracle : 
+	Exception
+------------------------------------
+Test 19 : testPasJeu11 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités
+Opérations : 
+	M = pasJeu(M, FRAPPERMURAILLE, 0 , 0)
+Oracle : 
+	Exception
+------------------------------------
+Test 20 : testPasJeu12 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, FRAPPERMURAILLE, 0 , 200)
+Oracle : 
+	Exception
+------------------------------------
+Test 21 : testPasJeu13 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu.json")
+	//Le fichier testPasJeu.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Ce qui permettra facilement de faire des tests
+Opérations : 
+	M = pasJeu(M, ENTRERMINE, 0 , 200)
+Oracle : 
+	Exception
+------------------------------------
+Test 22 : testPasJeu14 : Negatif
+
+Conditions initiales :
+	M = init(640, 480, 1000, ORC, HUMAN, "config/testPasJeu2.json")
+	//Le fichier testPasJeu2.json contient une configuration dans laquelle toutes les entites sont initialisées à la meme position
+	//Sauf les villageois qui sont initialisee trés loins des autres entités
+Opérations : 
+	M = pasJeu(M, ENTRERMINE, 0 , 0)
+Oracle : 
+	Exception

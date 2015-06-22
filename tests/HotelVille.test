@@ -1,0 +1,232 @@
+--------------------------------------------------------------------------------
+[Test 1]: Init
+--------------------------------------------------------------------------------
+[Test 1.1]: testInit1 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(17,23,PLAYER,100)
+Oracle : 	
+	largeur(H) = 17
+	hauteur(H) = 23
+	type(H) = HOTELVILLE
+	orRestant(H) = 100	
+	side(H) = PLAYER
+--------------------------------------------------------------------------------
+[Test 1.2]: testInit2 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(15,43,PLAYER,150)
+Oracle : 	
+	largeur(H) = 15
+	hauteur(H) = 43
+	type(H) = HOTELVILLE
+	orRestant(H) = 150	
+	side(H) = PLAYER
+--------------------------------------------------------------------------------
+[Test 1.3]: testInit3 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(18,43,PLAYER,150)
+Oracle : 	
+	Exception {
+		Init : largeaur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.4]: testInit4 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(18,43,ENEMY,150)
+Oracle : 	
+	Exception {
+		Init : largeaur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.5]: testInit5 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(1,43,PLAYER,150)
+Oracle : 	
+	Exception {
+		Init : largeaur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.6]: testInit6 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(1,43,ENEMY,150)
+Oracle : 	
+	Exception {
+		Init : hauteur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.7]: testInit7 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(19,44,PLAYER,150)
+Oracle : 	
+	Exception {
+		Init : hauteur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.8]: testInit8 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(19,44,ENEMY,150)
+Oracle : 	
+	Exception {
+		Init : hauteur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.9]: testInit9 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(25,1,PLAYER,150)
+Oracle : 	
+	Exception {
+		Init : hauteur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.10]: testInit10 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(25,1,ENEMY,150)
+Oracle : 	
+	Exception {
+		Init : hauteur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.11]: testInit11 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(19,43,PLAYER,0)
+Oracle : 	
+	Exception {
+		Init : orRestant <= 0
+	}
+--------------------------------------------------------------------------------
+[Test 1.12]: testInit12 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(19,43,ENEMY,-100)
+Oracle : 	
+	Exception {
+		Init : orRestant <= 0
+	}
+--------------------------------------------------------------------------------
+[Test 1.13]: testInit13 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	H = init(19,43,NONE,100)
+Oracle : 	
+	Exception {
+		Init : side == NONE
+	}
+--------------------------------------------------------------------------------
+[Test 2]: Depot
+--------------------------------------------------------------------------------
+[Test 2.1]: testDepot1 | Positif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+Opérations : 
+	depot(H,20)
+Oracle : 
+	orRestant(H) = orRestant(H) + 20
+--------------------------------------------------------------------------------
+[Test 2.2]: testDepot2 | Negatif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+Opérations : 
+	depot(H,-20)
+Oracle : 
+	Exception {
+		Depot : somme <= 0 
+	}	
+--------------------------------------------------------------------------------
+[Test 3]: Retrait 
+--------------------------------------------------------------------------------
+[Test 3.1]: testRetrait1 | Positif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+Opérations : 
+	retrait(H, 60)
+Oracle : 
+	orRestant(H) = 40
+--------------------------------------------------------------------------------
+[Test 3.2]: testRetrait2 | Positif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+Opérations : 
+	retrait(H, 100)
+Oracle : 
+	orRestant(H) = -20
+--------------------------------------------------------------------------------
+[Test 3.3]: testRetrait3 | Positif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+Opérations : 
+	retrait(H, 120)
+Oracle : 
+	orRestant(H) = -20
+--------------------------------------------------------------------------------
+[Test 3.4]: testRetrait4 | Positif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)	
+Opérations : 
+	depot(H, 40)
+	retrait(H, 60)
+Oracle : 
+	orRestant(H) = 80
+--------------------------------------------------------------------------------
+[Test 3.5]: testRetrait5 | Negatif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)
+	retrait(H, 100)
+Opérations : 	
+	retrait(H, 60)
+Oracle :
+	Exception {
+		Retrait : estLaminee() 
+	}
+--------------------------------------------------------------------------------
+[Test 3.6]: testRetrait6 | Negatif
+
+Conditions initiales :
+	H = init(17,23,PLAYER,100)	
+Opérations : 	
+	retrait(H, -100)
+Oracle :
+	Exception {
+		Retrait : somme <= 0 

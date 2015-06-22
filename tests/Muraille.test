@@ -1,0 +1,128 @@
+------------------------------------
+Test 1 : testInit1 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(21, 21, 200)
+Oracle : 
+	largeur(M) == 21
+	hauteur(M) == 21
+	pointDeVie(M) == 200
+------------------------------------
+Test 2 : testInit2 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(21, 11, 200)
+Oracle : 
+	largeur(M) == 21
+	hauteur(M) == 11
+	pointDeVie(M) == 200
+------------------------------------
+Test 3 : testInit3 : Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(11, 21, 200)
+Oracle : 
+	largeur(M) == 11
+	hauteur(M) == 21
+	pointDeVie(M) == 200
+------------------------------------
+Test 4 : testInit4 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(20, 15, 200)
+Oracle : 
+	Exception
+------------------------------------
+Test 5 : testInit5 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(15, 20, 200)
+Oracle : 
+	Exception
+------------------------------------
+Test 6 : testInit6 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(15, -5, 200)
+Oracle : 
+	Exception
+------------------------------------
+Test 7 : testInit7 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(21, 15, -5)
+Oracle : 
+	Exception
+------------------------------------
+Test 8 : testInit8 : Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	M = init(21, 15, 0)
+Oracle : 
+	Exception
+	
+------------------------------------
+Test 9 : testfrappee1 : Positif
+
+Conditions initiales :
+	M = init(21, 21, 20)
+Opérations : 
+	frappee(M, 10)
+Oracle : 
+	estDetruite(M) = false
+	pointDeVie(M) = 10
+------------------------------------
+Test 10 : testfrappee2 : Positif
+
+Conditions initiales :
+	M = init(21, 21, 10)
+Opérations : 
+	frappee(M, 10)
+Oracle :
+	estDetruite(M) = true
+	pointDeVie(M) = 0
+------------------------------------
+Test 11 : testfrappee3 : Positif
+
+Conditions initiales :
+	M = init(21, 21, 10)
+Opérations : 
+	frappee(M, 0)
+Oracle :
+	estDetruite(M) = false
+	pointDeVie(M) = 10
+------------------------------------
+Test 12 : testfrappee4 : Negatif
+
+Conditions initiales :
+	M = init(21, 21, 20)
+Opérations : 
+	frappee(M, -5)
+Oracle :
+	Exception
+------------------------------------
+Test 13 : testfrappee5  : Negatif
+
+Conditions initiales :
+	M = init(21, 21, 10)
+	frappee(M, 10)
+Opérations : 
+	frappee(M, 10)
+Oracle :
+	Exception

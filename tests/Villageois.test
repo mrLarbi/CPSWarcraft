@@ -1,0 +1,287 @@
+--------------------------------------------------------------------------------
+[Test 1]: Init
+--------------------------------------------------------------------------------
+[Test 1.1]: testInit1 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Oracle : 
+	race(V) = Race.HUMAN
+	side(V) = Side.PLAYER
+	largeur(V) = 15
+	hauteur(V) = 35
+	force(V) = 55
+	vitesse(V) = 20
+	pointsDeVie(V) = 100
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 1.2]: testInit2 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.ORC, Side.PLAYER, 21, 35, 60, 15, 10)
+Oracle : 
+	race(V) = Race.ORC
+	side(V) = Side.PLAYER
+	largeur(V) = 21
+	hauteur(V) = 35
+	force(V) = 60
+	vitesse(V) = 15
+	pointsDeVie(V) = 100
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 1.3]: testInit3 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.ENEMY, 15, 35, 55, 20, 10)
+Oracle :
+	race(V) = Race.HUMAN
+	side(V) = Side.ENEMY
+	largeur(V) = 15
+	hauteur(V) = 35
+	force(V) = 55
+	vitesse(V) = 20
+	pointsDeVie(V) = 100
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 1.4]: testInit4 | Positif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.ORC, Side.ENEMY, 21, 35, 60, 15, 10)
+Oracle : 
+	race(V) = Race.ORC
+	side(V) = Side.ENEMY
+	largeur(V) = 21
+	hauteur(V) = 35
+	force(V) = 60
+	vitesse(V) = 15
+	pointsDeVie(V) = 100
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 1.5]: testInit5 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 16, 35, 55, 20, 10)
+Oracle : 
+	Exception {
+		Init : hauteur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.6]: testInit6 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 1, 35, 55, 20, 10)
+Oracle : 
+	Exception {
+		Init : hauteur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.7]: testInit7 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 34, 55, 20, 10)
+Oracle : 
+	Exception {
+		Init : largeur % 2 != 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.8]: testInit8 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 1, 55, 20, 10)
+Oracle : 
+	Exception {
+		Init : largeur <= 1
+	}
+--------------------------------------------------------------------------------
+[Test 1.9]: testInit9 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, -1, 20, 10)
+Oracle : 
+	Exception {
+		Init : force < 0
+	}
+--------------------------------------------------------------------------------
+[Test 1.10]: testInit10 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, -1, 10)
+Oracle : 
+	Exception {
+		Init : vitesse < 0
+	}
+--------------------------------------------------------------------------------
+[Test 1.11]: testInit11 | Negatif
+
+Conditions initiales :
+	aucunes
+Opérations : 
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, -1)
+Oracle : 
+	Exception {
+		Init : pointsDeVie < 0
+	}	
+--------------------------------------------------------------------------------
+[Test 2]: Retrait
+--------------------------------------------------------------------------------
+[Test 2.1]: testRetrait1 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	retrait(V, 2)
+Oracle : 
+	pointDeVie(V) = 8
+	estMort(V) = false
+	quantiteOr(V) ≥ 0
+--------------------------------------------------------------------------------
+[Test 2.2]: testRetrait2 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	retrait(V, 10)
+Oracle : 
+	pointDeVie(V) = 0
+	estMort(V) = true
+	quantiteOr(V) ≥ 0
+--------------------------------------------------------------------------------
+[Test 2.3]: testRetrait3 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	retrait(V, 5)
+	retrait(V, 10)
+Oracle : 
+	pointDeVie(V) = -5
+	estMort(V) = true
+	quantiteOr(V) ≥ 0
+--------------------------------------------------------------------------------
+[Test 2.4]: testRetrait4 | Negatif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+	retrait(V, 10)
+Opérations : 
+	retrait(V, 2)
+Oracle : 
+	Exception {
+		Retrait : estMort()
+	}
+--------------------------------------------------------------------------------
+[Test 2.5]: testRetrait5 | Negatif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)	
+Opérations : 
+	retrait(V, 0)
+Oracle : 
+	Exception {
+		Retrait : degat <= 0
+	}
+--------------------------------------------------------------------------------
+[Test 3]: ViderPoches
+--------------------------------------------------------------------------------
+[Test 3.1]: testViderPoches1 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	viderPoches(V)
+Oracle : 
+	pointDeVie(V) = 10
+	estMort(V) = false
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 3.2]: testViderPoches2 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	retrait(V, 8)
+	viderPoches(V)
+Oracle : 
+	pointDeVie(V) = 2
+	estMort(V) = false
+	quantiteOr(V) = 0
+--------------------------------------------------------------------------------
+[Test 3.3]: testViderPoches3 | Negatif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+	retrait(V, 10)
+Opérations : 
+	viderPoches(V)
+Oracle : 
+	Exception {
+		ViderPoches : estMort()
+	}
+--------------------------------------------------------------------------------
+[Test 4]: Recupere
+--------------------------------------------------------------------------------
+[Test 4.1]: testRecupere1 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	recupere(V,20)
+Oracle : 
+	pointDeVie(V) = 10
+	estMort(V) = false
+	quantiteOr(V) = quantiteOr(V) + 20
+--------------------------------------------------------------------------------
+[Test 4.2]: testRecupere2 | Positif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+Opérations : 
+	retrait(V, 5)
+	recupere(V,20)
+Oracle : 
+	pointDeVie(V) = 5
+	estMort(V) = false
+	quantiteOr(V) = quantiteOr(V) + 20
+--------------------------------------------------------------------------------
+[Test 4.3]: testRecupere3 | Negatif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)
+	retrait(V, 10)
+Opérations : 	
+	recupere(V,20)
+Oracle : 
+	Exception {
+		Recupere : estMort()
+	}
+--------------------------------------------------------------------------------
+[Test 4.4]: testRecupere4 | Negatif
+
+Conditions initiales :
+	V = init(Race.HUMAN, Side.PLAYER, 15, 35, 55, 20, 10)	
+Opérations : 	
+	recupere(V,0)
+Oracle : 
+	Exception {
+		Recupere : retire <= 0
+	}
